@@ -1,0 +1,66 @@
+# Introduction # {#intro}
+
+The aim of this specification is to establish a standardized mapping between the
+types defined in the [=WebIDL Standard=] and their corresponding or analogous
+native Python types. This will allow developers to work with low-level
+abstractions in a manner that is idiomatic to the Python language.
+
+The document is based on the [=Java language binding for Web IDL=] WG Note
+published by the W3C, and it includes a comprehensive type-mapping list that
+covers all of the WebIDL types defined by the WHATWG standard. This will provide
+developers with a clear and consistent reference for working with WebIDL types
+in Python. [[WEBIDL-JAVA]]
+
+This standard was originally created to address the inconsistencies of a
+[=Python implementation of the Fetch Standard=] with regards to certain
+low-level primitives like {{ReadableStream}}. Such primitives must be adapted to
+work more idiomatically with other platforms. In this case, that means using a
+Pythonic {{io.RawIOBase}} stream instead. This standard describes in detail how,
+why, and where such type differences should be manifested when adapting Web APIs
+to Python. [[FETCH]] [[STREAMS]]
+
+<div class="example">
+
+Here's an example of a WebIDL interface and how it might be implemented as a
+Python class using the rules and bindings described in this document:
+
+```webidl
+interface Person {
+  constructor(DOMString name, optional Temporal.PlainDate birthdate);
+
+  readonly attribute DOMString name;
+  readonly attribute Temporal.PlainDate birthdate;
+  readonly attribute Temporal.PlainMonthDay birthday;
+
+  Temporal.Duration age(Temporal.Instant now);
+};
+```
+
+```py
+class Person:
+  def __init__(self, name, birthdate):
+    if birthdate is None:
+      birthDate = date.today()
+
+    self.__name = name
+    self.__birthdate = birthdate
+
+  @property
+  def name(self):
+    return this.__name
+
+  @property
+  def birthdate(self):
+    return this.birthdate
+
+  @property
+  birthday(self):
+    month = self.__birthdate.month
+    day = self.__birthdate.day
+    return date(1, month, day)
+
+  def age(self, now):
+    # ...
+```
+
+</div>
