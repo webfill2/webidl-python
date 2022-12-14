@@ -1,5 +1,5 @@
-<pre class='metadata'>
-Title: Your Spec Title
+<pre class="metadata">
+Title: Python language binding for WebIDL
 Shortname: your-spec
 Level: 1
 Status: w3c/UD
