@@ -1,0 +1,45 @@
+# Type mapping # {#type-mapping}
+
+The following sections describe how each corresponding WebIDL type maps to a
+native Python type. All Python types are defined by [[PYTHON-REFERENCE inline]].
+There are no third-party modules required to implement these type conversions.
+
+## [[!WEBIDL inline]] types ## {#webidl-types}
+
+<style>
+#webidl-types-simpledef-container table th {
+  width: 50% !important;
+}
+</style>
+<div id="webidl-types-simpledef-container">
+
+<pre class="simpledef">
+{{any}}: _unknown_
+{{void}}: {{None}}
+{{boolean}}: {{bool}}
+{{byte}}: {{int}}
+{{octet}}: {{int}}
+{{short}}: {{int}}
+{{unsigned short}}: {{int}}
+{{long}}: {{int}}
+{{unsigned long}}: {{int}}
+{{long long}}: {{int}}
+{{unsigned long long}}: {{int}}
+{{float}}: {{float}}
+{{unrestricted float}}: {{float}}
+{{double}}: {{float}}
+{{unrestricted double}}: {{float}}
+{{DOMString}}: {{str}}
+{{ByteString}}: {{bytes}}
+{{USVString}}: {{str}}
+{{object}}: {{dict}}
+{{Date}}: {{datetime}}
+{{RegExp}}: {{re.Pattern}}
+{{Error}}: {{BaseException}}
+{{Promise}}: {{asyncio.Future}}
+{{sequence}}: {{list}}
+{{FrozenArray}}: {{tuple}}
+{{record}}: {{dict}}
+</pre>
+
+</div>

@@ -1,0 +1,46 @@
+# Names # {#names}
+
+<div class="note">
+
+Sometimes there are WebIDL definitions that use names that are reserved in
+Python. When such cases arise, it is important to escape these names in a
+standardized way so that the Python code is valid, while also being
+deterministic. We don't want 3 different method names for the same underlying
+WebIDL method.
+
+</div>
+
+All WebIDL are converted to Python names. These Python names are `snake_case`
+instead of `camelCase`. Any top-level functions or attributes that use a
+[=Python reserved word=] have a U+005F LOW LINE ("_") character appended to
+their name. A formal method to <dfn export>Python escape a name</dfn> given
+|name| is defined as follows:
+
+1. If |name| is in the top-level scope of a Python module, or is being applied
+    to the global scope, then
+    1. If |name| is a [=Python reserved word=], then
+        1. Return the result of appending a U+005F LOW LINE ("_") character to |name|.
+2. Return |name|.
+
+Issue: Add algorithm logic to convert `camelCase` to `snake_case`
+
+<div class="example">
+
+```webidl
+partial namespace _ {
+  readonly attribute any nonlocal;
+};
+```
+
+```py
+# my_module.py
+def nonlocal_():
+  pass
+```
+
+```py
+from my_module import nonlocal_
+```
+
+</div>
+

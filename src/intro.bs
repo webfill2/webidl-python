@@ -1,23 +1,22 @@
 # Introduction # {#intro}
 
 The aim of this specification is to establish a standardized mapping between the
-types defined in the [=WebIDL Standard=] and their corresponding or analogous
-native Python types. This will allow developers to work with low-level
-abstractions in a manner that is idiomatic to the Python language.
+types defined in [[WEBIDL inline]] and their corresponding or analogous native
+[[PYTHON-REFERENCE inline]] types. This will allow developers to work with
+low-level abstractions in a manner that is idiomatic to the Python language.
 
-The document is based on the [=Java language binding for Web IDL=] WG Note
-published by the W3C, and it includes a comprehensive type-mapping list that
-covers all of the WebIDL types defined by the WHATWG standard. This will provide
-developers with a clear and consistent reference for working with WebIDL types
-in Python. [[WEBIDL-JAVA]]
+The document is based on [[WEBIDL-JAVA inline]] and [[WEBIDL inline]]. It
+includes a comprehensive type-mapping list that covers all of the WebIDL types
+defined by the WHATWG standard. This will provide developers with a clear and
+consistent reference for working with WebIDL types in Python.
 
-This standard was originally created to address the inconsistencies of a
-[=Python implementation of the Fetch Standard=] with regards to certain
-low-level primitives like {{ReadableStream}}. Such primitives must be adapted to
-work more idiomatically with other platforms. In this case, that means using a
-Pythonic {{io.RawIOBase}} stream instead. This standard describes in detail how,
-why, and where such type differences should be manifested when adapting Web APIs
-to Python. [[FETCH]] [[STREAMS]]
+This standard was originally created to address the inconsistencies found while
+creating [[PYTHON-FETCH inline]] with regards to certain low-level primitives
+like {{ReadableStream}}. Such primitives must be adapted to work more
+idiomatically with other platforms. In this case, that means using a Pythonic
+{{io.RawIOBase}} stream instead. This standard describes in detail how, why, and
+where such type differences should be manifested when adapting Web APIs to
+Python.
 
 <div class="example">
 
@@ -60,31 +59,10 @@ class Person:
     return date(1, month, day)
 
   def age(self, now):
-    # ...
+    if now is None:
+      now = date.today()
+    
+    return self.__birthdate - now
 ```
 
 </div>
-
-<pre class="biblio">
-{
-  "WEBIDL-JAVA": {
-    "id": "WEBIDL-JAVA",
-    "href": "https://www.w3.org/TR/WebIDL-Java/",
-    "authors": ["Cameron McCormack"],
-    "title": "Java language binding for Web IDL",
-    "rawDate": "2013-05-13",
-    "deliveredBy": "https://www.w3.org/"
-  }
-}
-</pre>
-<pre class="anchors">
-type: dfn; text: 32-bit integer; spec: WEBIDL; url: https://webidl.spec.whatwg.org/#idl-long;
-type: dfn; text: 32-bit unsigned integer; spec: WEBIDL; url: https://webidl.spec.whatwg.org/#idl-unsigned-long;
-type: dfn; text: unsigned 32-bit integer; spec: WEBIDL; url: https://webidl.spec.whatwg.org/#idl-unsigned-long;
-
-type: dfn; text: major; spec: SEMVER; url: https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string:~:text=PATCH%2C%20increment%20the%3A-,MAJOR,-version%20when%20you;
-type: dfn; text: minor; spec: SEMVER; url: https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string:~:text=incompatible%20API%20changes-,MINOR,-version%20when%20you;
-type: dfn; text: patch; spec: SEMVER; url: https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string:~:text=backwards%20compatible%20manner-,PATCH,-version%20when%20you;
-type: dfn; text: pre-release; spec: SEMVER; url: https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string:~:text=Additional%20labels%20for-,pre%2Drelease,-and%20build%20metadata;
-type: dfn; text: build metadata; spec: SEMVER; url: https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string:~:text=pre%2Drelease%20and-,build%20metadata,-are%20available%20as;
-</pre>

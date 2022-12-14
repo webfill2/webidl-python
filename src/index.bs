@@ -7,8 +7,61 @@ URL: https://jcbhmr.github.io/webidl-python/
 Repository: jcbhmr/webidl-python
 Editor: Jacob Hummer, jcbhmr@outlook.com, https://jcbhmr.me/
 Markup Shorthands: markdown yes
-Abstract: 🐍 WebIDL types ↔️ Python types
+Abstract: This document defines the Python language binding for WebIDL, the interface definition language for the Web platform.
 </pre>
+<link rel="icon" href="https://www.python.org/static/favicon.ico" />
+<style>
+[data-fill-with="logo"] {
+  width: 100px;
+  height: 100px;
+  margin: 0;
+  float: right;
+  background-image: url(https://www.python.org/static/opengraph-icon-200x200.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+</style>
 
 <pre class="include">path: intro.bs</pre>
+<pre class="include">path: names.bs</pre>
+<pre class="include">path: type-mapping.bs</pre>
 
+<pre class="biblio">
+{
+  "WEBIDL-JAVA": {
+    "id": "WEBIDL-JAVA",
+    "href": "https://www.w3.org/TR/WebIDL-Java/",
+    "authors": ["Cameron McCormack"],
+    "title": "Java language binding for Web IDL",
+    "rawDate": "2013-05-13",
+    "deliveredBy": "https://www.w3.org/"
+  },
+  "PYTHON-FETCH": {
+    "id": "PYTHON-FETCH",
+    "href": "https://github.com/jcbhmr/fetch#readme",
+    "authors": ["Jacob Hummer"],
+    "title": "Python implementation of the Fetch Standard",
+    "rawDate": "2022-12-14",
+    "deliveredBy": "https://github.com/jcbhmr"
+  },
+  "PYTHON-REFERENCE": {
+    "id": "PYTHON-REFERENCE",
+    "href": "https://docs.python.org/3/reference/index.html",
+    "authors": ["Python Software Foundation"],
+    "title": "Python Language Reference",
+    "rawDate": "2022-12-14",
+    "deliveredBy": "https://www.python.org/"
+  }
+}
+</pre>
+<pre class="anchors">
+type: dfn; text: Python reserved word; spec: PYTHON-REFERENCE; url: https://docs.python.org/3/reference/lexical_analysis.html#keywords;
+type: dfn; text: Python types; spec: PYTHON-REFERENCE; url: https://docs.python.org/3/library/stdtypes.html
+type: dfn; text: Python type hints; spec: PYTHON-REFERENCE; url: https://docs.python.org/3/library/typing.html
+type: interface; text: io.RawIOBase; spec: PYTHON-REFERENCE; url: https://docs.python.org/3/library/io.html#io.RawIOBase
+type: typedef; text: typing.Any; spec: PYTHON-REFERENCE; url: https://docs.python.org/3/library/typing.html#typing.Any
+type: interface; text: re.Pattern; spec: PYTHON-REFERENCE; url: https://docs.python.org/3/library/re.html#re.Pattern
+type: interface; text: BaseException; spec: PYTHON-REFERENCE; url: https://docs.python.org/3/library/exceptions.html#BaseException
+
+</pre>
