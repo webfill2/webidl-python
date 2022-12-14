@@ -1,16 +1,14 @@
 <pre class="metadata">
 Title: Python language binding for WebIDL
-Shortname: your-spec
-Level: 1
-Status: w3c/UD
-Group: WGNAMEORWHATEVER
-URL: http://example.com/url-this-spec-will-live-at
-Editor: Your Name, Your Company http://example.com/your-company, your-email@example.com, http://example.com/your-personal-website
-Abstract: A short description of your spec, one or two sentences.
+Shortname: webidl-python
+Status: LS
+TR: https://jcbhmr.github.io/webidl-python/
+URL: https://jcbhmr.github.io/webidl-python/
+Repository: jcbhmr/webidl-python
+Editor: Jacob Hummer, jcbhmr@outlook.com, https://jcbhmr.me/
+Markup Shorthands: markdown yes
+Abstract: 🐍 WebIDL types ↔️ Python types
 </pre>
 
-Introduction {#intro}
-=====================
-
-Introduction here.
+<pre class="include">path: intro.bs</pre>
 

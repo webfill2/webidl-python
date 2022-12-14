@@ -26,13 +26,13 @@ Python class using the rules and bindings described in this document:
 
 ```webidl
 interface Person {
-  constructor(DOMString name, optional Temporal.PlainDate birthdate);
+  constructor(DOMString name, optional PlainDate birthdate);
 
   readonly attribute DOMString name;
-  readonly attribute Temporal.PlainDate birthdate;
-  readonly attribute Temporal.PlainMonthDay birthday;
+  readonly attribute PlainDate birthdate;
+  readonly attribute PlainMonthDay birthday;
 
-  Temporal.Duration age(Temporal.Instant now);
+  Duration age(Instant now);
 };
 ```
 
@@ -64,3 +64,27 @@ class Person:
 ```
 
 </div>
+
+<pre class="biblio">
+{
+  "WEBIDL-JAVA": {
+    "id": "WEBIDL-JAVA",
+    "href": "https://www.w3.org/TR/WebIDL-Java/",
+    "authors": ["Cameron McCormack"],
+    "title": "Java language binding for Web IDL",
+    "rawDate": "2013-05-13",
+    "deliveredBy": "https://www.w3.org/"
+  }
+}
+</pre>
+<pre class="anchors">
+type: dfn; text: 32-bit integer; spec: WEBIDL; url: https://webidl.spec.whatwg.org/#idl-long;
+type: dfn; text: 32-bit unsigned integer; spec: WEBIDL; url: https://webidl.spec.whatwg.org/#idl-unsigned-long;
+type: dfn; text: unsigned 32-bit integer; spec: WEBIDL; url: https://webidl.spec.whatwg.org/#idl-unsigned-long;
+
+type: dfn; text: major; spec: SEMVER; url: https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string:~:text=PATCH%2C%20increment%20the%3A-,MAJOR,-version%20when%20you;
+type: dfn; text: minor; spec: SEMVER; url: https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string:~:text=incompatible%20API%20changes-,MINOR,-version%20when%20you;
+type: dfn; text: patch; spec: SEMVER; url: https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string:~:text=backwards%20compatible%20manner-,PATCH,-version%20when%20you;
+type: dfn; text: pre-release; spec: SEMVER; url: https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string:~:text=Additional%20labels%20for-,pre%2Drelease,-and%20build%20metadata;
+type: dfn; text: build metadata; spec: SEMVER; url: https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string:~:text=pre%2Drelease%20and-,build%20metadata,-are%20available%20as;
+</pre>
